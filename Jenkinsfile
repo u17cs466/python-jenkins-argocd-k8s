@@ -15,9 +15,9 @@ pipeline {
                echo passed
                git --version
                '''
-                git credentialsId: '9ef05e1b-3b5f-4fec-9fcc-ec9233fecd4e', 
-                url: 'https://github.com/u17cs466/python-jenkins-argocd-k8s.git',
-                branch: 'main'
+                // git credentialsId: '9ef05e1b-3b5f-4fec-9fcc-ec9233fecd4e', 
+                // url: 'https://github.com/u17cs466/python-jenkins-argocd-k8s.git',
+                // branch: 'main'
            }
         }
 
@@ -26,7 +26,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Buid Docker Image'
-                    // docker build -t srikanth1122/cicd-e2e:${BUILD_NUMBER} .
+                    // docker build -t srikanth1122/damacharla44:${BUILD_NUMBER} .
                     '''
                 }
             }
