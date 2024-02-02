@@ -39,8 +39,8 @@ pipeline {
                     sh '''
                     echo 'Push to Repo'
                      docker.withRegistry('https://hub.docker.com/',docker-cred) {
-                        // For example, docker build and push commands
-                        docker.build('srikanth1122/damacharla44:${BUILD_NUMBER').push()
+                        // For example, docker buildx and push commands
+                        docker.buildx('srikanth1122/damacharla44:${BUILD_NUMBER').push()
                     }
                     // docker push srikanth2233/damacharla44:${BUILD_NUMBER}
                     '''
