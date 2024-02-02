@@ -14,6 +14,7 @@ pipeline {
                sh '''
                echo passed
                git --version
+               echo pass
                '''
                 // git credentialsId: '9ef05e1b-3b5f-4fec-9fcc-ec9233fecd4e', 
                 // url: 'https://github.com/u17cs466/python-jenkins-argocd-k8s.git',
