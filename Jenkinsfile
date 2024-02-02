@@ -27,7 +27,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Buid Docker Image'
-                    // docker build -t srikanth1122/damacharla44:${BUILD_NUMBER} .
+                    docker build -t srikanth1122/damacharla44:${BUILD_NUMBER} .
                     '''
                 }
             }
@@ -50,7 +50,7 @@ pipeline {
         
         stage('Checkout K8S manifest SCM'){
             steps {
-                git credentialsId: '9ef05e1b-3b5f-4fec-9fcc-ec9233fecd4e', 
+                git credentialsId: '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', 
                 url: 'https://github.com/u17cs466/python-jenkins-argocd-k8s.git',
                 branch: 'main'
             }
@@ -59,7 +59,7 @@ pipeline {
         stage('Update K8S manifest & push to Repo'){
             steps {
                 script{
-                    withCredentials([usernamePassword(credentialsId: '9ef05e1b-3b5f-4fec-9fcc-ec9233fecd4e', passwordVariable: 'Srikanth@#123', usernameVariable: 'u17cs466')]) {
+                    withCredentials([usernamePassword(credentialsId: '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', passwordVariable: 'Srikanth@#123', usernameVariable: 'u17cs466')]) {
                         sh '''
                         cat deploy.yaml
                         sed -i '' "s/32/${BUILD_NUMBER}/g" deploy.yaml
