@@ -38,7 +38,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Push to Repo'
-                     docker.withRegistry('https://index.docker.io/v1/',$dockertoken) {
+                     docker.withRegistry('https://hub.docker.com/',$dockertoken) {
                         // For example, docker build and push commands
                         docker.build('srikanth1122/damacharla44:${BUILD_NUMBER').push()
                     }
