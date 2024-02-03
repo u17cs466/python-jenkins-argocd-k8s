@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    echo your_password | docker login -u your_username --password-stdin docker.io
+                    echo Srikanth@#123 | docker login -u srikanth.damaharla99@gmail.com --password-stdin docker.io
                     docker push srikanth2233/damacharla44:${BUILD_NUMBER}
 
 
