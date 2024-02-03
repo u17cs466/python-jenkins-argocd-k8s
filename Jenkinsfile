@@ -28,7 +28,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Buid Docker Image'
-                  def customImage = docker build -t srikanth2233/damacharla44:${BUILD_NUMBER} .
+                   docker build -t srikanth2233/damacharla44:${BUILD_NUMBER} .
                     '''
                 }
             }
