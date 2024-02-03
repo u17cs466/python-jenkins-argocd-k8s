@@ -66,8 +66,9 @@ pipeline {
                         cat deploy.yaml
                         git add deploy.yaml
                         git config --global --edit
-                        sed -i 's/^name = .*/name = srikanth.d/' ~/.gitconfig
-                        sed -i 's/^email = .*/email = srikanth.damacharla99@gmail.com/' ~/.gitconfig
+                        git config --global user.name "Your Name"
+                        git config --global user.email you@example.com
+                        git commit --amend --reset-author
                         git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
                         git remote -v
                         git push origin main
