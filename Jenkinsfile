@@ -14,7 +14,7 @@ pipeline {
                sh '''
                echo passed
                git --version
-               echo pwd
+               pwd
                echo pass
                '''
                 // git credentialsId: 'newtoken', 
@@ -65,7 +65,7 @@ pipeline {
                         sed -i 's|image:.*|image:srikanth2233/damacharla44:`${BUILD_NUMBER}`|' deploy.yaml
                         cat deploy.yaml
                         git add deploy.yaml
-                        git config --global --edit
+                        
                         git config --global user.name "Your Name"
                         git config --global user.email you@example.com
                         git commit --amend --reset-author
