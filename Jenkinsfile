@@ -14,6 +14,7 @@ pipeline {
                sh '''
                echo passed
                git --version
+               echo pwd
                echo pass
                '''
                 // git credentialsId: 'newtoken', 
@@ -27,7 +28,7 @@ pipeline {
                 script{
                     sh '''
                     echo 'Buid Docker Image'
-                    docker build -t srikanth1122/damacharla44:${BUILD_NUMBER} .
+                    docker build -t srikanth2233/damacharla44:${BUILD_NUMBER} .
                     '''
                 }
             }
@@ -40,7 +41,7 @@ pipeline {
                     echo 'Push to Repo'
                      withDockerRegistry(credentialsId: 'docker-cred') {
                                 // some block
-                                 docker.build('srikanth1122/damacharla44:${BUILD_NUMBER').push()
+                                 docker.build('srikanth2233/damacharla44:${BUILD_NUMBER').push()
                    }
                        
                     }
@@ -61,7 +62,7 @@ pipeline {
         stage('Update K8S manifest & push to Repo'){
             steps {
                 script{
-                    withCredentials([usernamePassword(credentialsId: 'newtoken', passwordVariable: 'Srikanth@#123', usernameVariable: 'u17cs466')]) {
+                    withCredentials([usernamePassword(credentialsId: 'newtoken', passwordVariable: 'Srikanth@#123', usernameVariable: 'srikanth.damacharla99@gmail.com')]) {
                         sh '''
                         cat deploy.yaml
                         sed -i '' "s/32/${BUILD_NUMBER}/g" deploy.yaml
