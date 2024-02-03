@@ -66,8 +66,8 @@ pipeline {
                         cat deploy.yaml
                         git add deploy.yaml
                         
-                        git config --global user.name "Your Name"
-                        git config --global user.email you@example.com
+                        git config --global user.name "u17cs466"
+                        git config --global user.email "srikanth.damacharla99@gmail.com"
                         
                         git commit --amend --reset-author -m "Updated the user email"
                         git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
