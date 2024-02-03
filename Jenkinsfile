@@ -65,6 +65,9 @@ pipeline {
                         sed -i 's|image:.*|image:srikanth2233/damacharla44:`${BUILD_NUMBER}`|' deploy.yaml
                         cat deploy.yaml
                         git add deploy.yaml
+                        git config --global --edit
+                        sed -i 's/^name = .*/name = srikanth.d/' ~/.gitconfig
+                        sed -i 's/^email = .*/email = srikanth.damacharla99@gmail.com/' ~/.gitconfig
                         git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
                         git remote -v
                         git push origin main
