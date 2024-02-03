@@ -62,7 +62,7 @@ pipeline {
                         sh '''
                         cd deploy
                         cat deploy.yaml
-                        sed -i 's|image:.*|image:srikanth2233/damacharla44:`${BUILD_NUMBER}`|' deploy.yaml
+                        sed -i \'\' "s/32/${BUILD_NUMBER}/g" deploy.yaml
                         cat deploy.yaml
                         git add deploy.yaml
                         
@@ -73,7 +73,7 @@ pipeline {
                         git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
                         git remote -v
                         git push origin main
-                        git push https://github.com/u17cs466/python-jenkins-argocd-k8s.git HEAD:main
+                        
                         '''                        
                     }
                 }
