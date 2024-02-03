@@ -37,22 +37,16 @@ pipeline {
         stage('Docker Build and Push') {
             steps {
                 script {
-                    sh '''
-                    echo Srikanth@#123 | docker login -u srikanth.damaharla99@gmail.com --password-stdin docker.io
-                    docker push srikanth2233/damacharla44:${BUILD_NUMBER}
+                    
+                    // Log in to Docker Hub
+                    docker.withRegistry('https://index.docker.io/v1/', docker-cred ) {
+                        // Pull the Docker image from the private repository (if needed)
+                        docker.image('srikanth2233/damacharla44').pull()
 
-
-
-                    '''
-                    // // Log in to Docker Hub
-                    // docker.withRegistry('https://index.docker.io/v1/', docker-cred ) {
-                    //     // Pull the Docker image from the private repository (if needed)
-                    //     docker.image('srikanth2233/damacharla44').pull()
-
-                    //     // Your Docker-related steps go here
-                    //     // For example, docker build and push commands
-                    //     docker.build('srikanth2233/damacharla44').push()
-                    // }
+                        // Your Docker-related steps go here
+                        // For example, docker build and push commands
+                        docker.build('srikanth2233/damacharla44').push()
+                    }
                 }
             }
         }
