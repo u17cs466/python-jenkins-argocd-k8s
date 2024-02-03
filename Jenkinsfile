@@ -37,11 +37,12 @@ pipeline {
         stage('Docker Build and Push') {
             steps {
                 script {
-                    
-                    // Log in to Docker Hub
-                   docker.withRegistry("https://registry.hub.docker.com", 'docker-cred') {
-                        customImage.push()
-                    }
+                    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubawd')]) {
+                          // some block
+                        sh 'docker login -u srikanth2233 -p $(dockerhubawd)'
+                       }
+                    sh 'docker push srikanth2233/damacharla44:{BUILD_NUMBER}'
+                   
                 }
             }
         }
