@@ -58,11 +58,11 @@ pipeline {
         stage('Update K8S manifest & push to Repo'){
             steps {
                 script{
-                    withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
+                    withCredentials([gitUsernamePassword(credentialsId: 'githubtoken', gitToolName: 'Default')]) {
                         sh '''
                         cd deploy
                         cat deploy.yaml
-                        sed -i 's|image:.*|image:srikanth2233/damacharla44:${BUILD_NUMBER}|' deploy.yaml
+                        sed -i 's|image:.*|image:srikanth2233/damacharla44:`${BUILD_NUMBER}`|' deploy.yaml
                         cat deploy.yaml
                         git add deploy.yaml
                         git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
