@@ -37,7 +37,7 @@ pipeline {
         stage('Docker Build and Push') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'dockertoken', variable: 'dockerhubawd')]) {
+                    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubawd')]) {
                           // some block
                         sh 'docker login -u srikanth2233 -p ${dockerhubawd}'
                        }
