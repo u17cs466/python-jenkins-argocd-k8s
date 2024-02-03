@@ -39,7 +39,7 @@ pipeline {
                 script {
                     withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubawd')]) {
                           // some block
-                        sh 'docker login -u srikanth2233 -p $(dockerhubawd)'
+                        sh 'docker login -u srikanth2233 -p ${dockerhubawd}'
                        }
                     sh 'docker push srikanth2233/damacharla44:{BUILD_NUMBER}'
                    
