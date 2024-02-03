@@ -41,11 +41,9 @@ pipeline {
                     echo 'Push to Repo'
                      withDockerRegistry(credentialsId: 'docker-cred') {
                                 // some block
-                                 docker.build('srikanth2233/damacharla44:${BUILD_NUMBER').push()
-                   }
-                       
-                    }
-                    // docker push srikanth2233/damacharla44:${BUILD_NUMBER}
+                                 docker.build('srikanth2233/damacharla44:${BUILD_NUMBER})'.push()
+                   }                    
+                    
                     '''
                 }
             }
