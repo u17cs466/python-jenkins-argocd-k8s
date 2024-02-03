@@ -41,11 +41,11 @@ pipeline {
                     // Log in to Docker Hub
                     docker.withRegistry('https://index.docker.io/v1/', docker-cred ) {
                         // Pull the Docker image from the private repository (if needed)
-                        docker.image('srikanth2233/damacharla44').pull()
+                        //docker.image('srikanth2233/damacharla44').pull()
 
                         // Your Docker-related steps go here
                         // For example, docker build and push commands
-                        docker.build('srikanth2233/damacharla44').push()
+                        docker.build('srikanth2233/damacharla44:${BUILD_NUMBER}').push()
                     }
                 }
             }
